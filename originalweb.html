@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vanigation bar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+  <style>
+   
+
+    
+
+   
+
+  @media(max-width:991px){
+    .sidebar{
+      background-color: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+    }
+  }
+  .carousel img{
+    width: 1500px;
+    height: 600px;
+  }
+.label{
+  text-align: center;
+  size-adjust: 20px;
+}
+img{
+  width: 400px;
+}
+footer{
+  text-align: center;
+  background-color: darkgray;
+}  
+.cow img{
+  width: 1500px;
+  height: 400px;
+}
+@media(max-width:998px){
+  html{
+    font-size: 55%;
+  }
+}
+@media(max-width:768px){
+  html{
+    font-size: 45%;
+  }
+}
+.cart{
+background-color: orange;
+}
+
+  
+
+
+
+</style>
+<script>
+    function setNewImage(){
+      document.getElementById("myImages").src="https://media.gettyimages.com/id/153729778/photo/almonds.jpg?s=612x612&w=0&k=20&c=CeH3nNYax6CTyX4CwW_BKWvGzwTnyfF2YHhW2GFBwTQ=";
+    }
+    function setOldImages(){
+      document.getElementById("myImages").src="https://vaaradhifarms.com/cdn/shop/files/23423523525.png?v=1706152705&width=500";
+    }
+    
+    
+    let cartItems = []; // Array to store items in the cart
+
+// Function to update the cart count and display cart items
+function updateCart() {
+    const cartCountSpan = document.getElementById('cart-count');
+    const cartTotalSpan = document.getElementById('cart-total');
+    const cartItemsList = document.getElementById('cart-items-list');
+
+    // Clear previous cart items
+    cartItemsList.innerHTML = '';
+
+    // Update cart count
+    cartCountSpan.textContent = cartItems.length;
+
+    // If cart is empty, display a message
+    if (cartItems.length === 0) {
+        cartTotalSpan.textContent = '';
+        const emptyCartMessage = document.createElement('li');
+        emptyCartMessage.textContent = 'Cart is empty';
+        emptyCartMessage.classList.add('dropdown-item');
+        cartItemsList.appendChild(emptyCartMessage);
+        return;
+    }
+     // Calculate total amount
+     const totalAmount = cartItems.reduce((acc, curr) => acc + curr.price, 0);
+
+    // Display each item in the cart
+    cartItems.forEach(item => {
+        const cartItemElement = document.createElement('li');
+        cartItemElement.textContent = `${item.name}: RS:${item.price.toFixed(2)}`;
+        cartItemElement.classList.add('dropdown-item');
+        cartItemsList.appendChild(cartItemElement);
+    });
+     // Display total amount as a separate list item at the end
+     const totalItem = document.createElement('li');
+    totalItem.textContent = `Total: RS:${totalAmount.toFixed(2)}`;
+    totalItem.classList.add('dropdown-item', 'text-end', 'fw-bold', 'text-primary');
+    cartItemsList.appendChild(totalItem);
+}
+    // Update total amount in the cart total span
+    cartTotalSpan.textContent = `RS:${totalAmount.toFixed(2)}`;
+
+
+// Function to add an item to the cart
+function addToCart(itemName, itemPrice) {
+    cartItems.push({ name: itemName, price: itemPrice });
+    updateCart(); // Update cart count and display cart items
+}
+
+// Add event listener to "Add to Cart" buttons
+document.addEventListener('DOMContentLoaded', function() {
+    const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const itemName = button.dataset.itemName;
+            const itemPrice = parseFloat(button.dataset.itemPrice);
+            addToCart(itemName, itemPrice);
+        });
+    });
+});
+
+
+  </script> 
+
+
+<body>
+  <div class="scrolling-text-container">
+    <div class="scrolling-text" style="background: green;color: white; font-family: 'Courier New', Courier, monospace;">
+     <h5><marquee> FREE SHIPPING ON ORDERS ABOVE ₹500</marquee></h5>
+    </div>
+  </div>
+  
+  <!--navbar-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+    <div class="container">
+      <!--logo-->
+      <img src="https://media.licdn.com/dms/image/C560BAQGLkqvQ52y-bQ/company-logo_200_200/0/1630593082638/one_earth_projects_india_logo?e=2147483647&v=beta&t=kgrNvO5TH7SCcXwAiXnooLn2ir_IqilqJdirn0LtCIU" alt="" style="width: 200px;height: 100px;">
+      <!--toggle btn-->
+      <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!--sidebar-->
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <!--slidebar header-->
+        <div class="offcanvas-header text-white border-bottom">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">bootstap navbar</h5>
+          <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <!--sidebar body-->
+        <div class="offcanvas-body d-flex flex-column flex-lg-row p-4 p-lg-0">
+          <ul class="navbar-nav justify-content-center align-items-center fs-5 flex-grow-1 pe-3">
+            <li class="nav-item mx-2">
+              <a class="nav-link active" aria-current="page" href="#home">Home</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link" href="#products">products</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link" href="#about">about</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link" href="#contact">contact</a>
+            </li>
+          </ul>
+          <form class="d-flex mt-3" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+          <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="cart-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-cart-fill"></i>
+                Cart
+                <span class="badge bg-secondary" id="cart-count">0</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="cart-dropdown" id="cart-items-list">
+                <!-- Cart items will be dynamically added here -->
+            </ul>
+        </div>
+        <span id="cart-total"></span> <!-- Display total amount here -->
+        </div>
+            </li>
+        </ul>
+        
+
+
+          
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+  
+      <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="800">
+            <img src="https://cdn.pixabay.com/photo/2015/06/27/16/35/honey-823614_1280.jpg" width="1500px" height="600">
+          </div>
+          <div class="carousel-item" data-bs-interval="800">
+            <img src="https://img.freepik.com/premium-photo/glass-orange-juice-wood-table-background-illustration-images_796580-705.jpg?size=626&ext=jpg&ga=GA1.1.1477951500.1706604223&semt=ais" width="1500px" height="600" >
+          </div>
+          <div class="carousel-item" data-bs-interval="800">
+            <img src="https://cdn.pixabay.com/photo/2019/05/07/16/19/fruit-4186310_640.jpg" width="1500px" height="600">
+          </div>
+        </div>
+      </div>
+      <br><br><br>
+      <div id="products">
+        <h1 style="text-align: center;">GO Natural,GO Healthy.</h1>
+      </div>
+        <div class="container text-center">
+            <div class="row">
+              <div class="col-4">
+                <img id="myImages" onmouseover="setNewImage()" onmouseout="setOldImages()" src="https://vaaradhifarms.com/cdn/shop/files/23423523525.png?v=1706152705&width=500" class="rounded mx-auto d-block" >
+              
+                <h4> Almonds 1kg</h4>
+              <h6>from Rs.289.00</h6>
+              <button onclick="addToCart('Almonds 1kg', 289.00)">Add to cart</button>
+
+              </div>
+              <div class="col-4">
+                <img src=https://vaaradhifarms.com/cdn/shop/files/ecommified_Close-up_macro_shot_of_a_bowl_filled_with_assorted_w_2a8860e0-6ab5-4328-a657-637cd29258fe.png?v=1706152255&width=500"" class="rounded mx-auto d-block" alt="">
+                <h4>Walnuts 1kg</h4> 
+                <h6>from Rs.640.00</h6>
+                <button onclick="addToCart('Walnuts 1kg', 640.00)">Add to cart</button>
+
+              </div>
+              <div class="col-4">
+                <img src="https://vaaradhifarms.com/cdn/shop/files/charlie67._soft_and_sweet_cashew_nut_wholesale_online_in_the_st_7a2a3069-0464-45ae-ad25-6b05608a4dc2.png?v=1706152593&width=500"class="rounded mx-auto d-block"  alt="">
+              
+                <h4>cashew 1kg</h4>
+                <h6>from Rs.300.00</h6>
+                <button onclick="addToCart('cashew 1kg', 300.00)">Add to cart</button>
+
+              </div>
+            </div>
+            <div id="total"></div>
+            <br>
+            <div class="row">
+              <div class="col-4">
+                <img src="https://vaaradhifarms.com/cdn/shop/files/tor.hov_pile_of_dry_saffron_threads_fills_up_frame_pleasing_mac_214b13c2-e76a-43f8-bc20-93d017b80b1e.png?v=1705982784&width=500"class="rounded mx-auto d-block"  alt="">
+                <h4>Kashmiri saffron 1gm</h4>
+                <h6>from Rs.600.00</h6> 
+                <button onclick="addToCart('saffron 1gm', 300.00)">Add to cart</button>
+              </div>
+              <div class="col-4">
+                <img src="https://vaaradhifarms.com/cdn/shop/files/Adityark_a_medium_tall_glass_jar_with_a_normal_black_lid_the_ja_ba41b589-5389-4c39-b8e0-c3480a91a5ce.png?v=1685025223&width=500" class="rounded mx-auto d-block" alt="">
+                <h4>bee pollen</h4>
+                <h6>from Rs.499.00</h6>
+                <button onclick="addToCart('pollen ', 300.00)">Add to cart</button>
+              </div>
+              <div class="col-4">
+                <img src="https://vaaradhifarms.com/cdn/shop/files/Adityark_a_bag_of_a_tan_colored_product_filled_with_turmeric_ki_30bdb482-db0c-4404-8b6c-cb59bec40502.png?v=1685016262&width=500" class="rounded mx-auto d-block" alt="" >
+                <h4>natural turmaric</h4>
+                <h6>from Rs.175.00</h6>
+                <button onclick="addToCart('natural turmaric', 300.00)">Add to cart</button>
+              </div>
+            </div>
+        </div>
+        <br><br>
+        <div class="cow">
+          <img src="https://d2td6mzj4f4e1e.cloudfront.net/wp-content/uploads/sites/8/2013/06/10/the-co-operative-launches-farming-groups-in-support-of-british-agriculture/cows-grazing-w.jpg"> 
+        </div>
+        <br>
+        <br>
+        <div class="card" id="about" style="width:40rem;margin: 0 auto; background-color:yellow;">
+           <div class="card-body" style="font-family: 'Times New Roman', Times, serif;">
+            <h2 class="card-title text-center">About Us</h2>
+            <p class="card-text">Welcome to prakruthi Farms! I am Sai Vikas Reddy and I exteremly passionate about healthy living and sustainable food practices</p>
+            <p>I am committed to making a postive impact on the world throught our business.I hope that you'll join us this journey towards healthy living and sustainable food practise</p>
+            <p>Thank you choosing our organic food product,and I look forward to serving you soon.</p>
+            
+          </div>
+        </div><br>
+        <div style="text-align: center;color: green;">
+          <h1><b>100% Pure</b></h1>
+          <h4>Our products Are Free From Chemicals And Additives</h4>
+        </div>
+        <footer id="contact" style="background-color: yellow;">
+        <div style="text-align:left;">
+          <h4 style="text-align: left;">customer care</h4>
+          <span>FAQ</span><br>
+          <span>shipping policy</span><br>
+          <span>refund policy</span><br>
+          <span>terms of service</span><br><br>
+        
+        <div style="text-align:left;">
+          <h4 style="text-align: left;">contact Info</h4>
+          <span>customer care number:
+            +918309756963<br>
+          </span>
+          <span>Customer support timimgs : 10:00am to 6:00pm</span><br>
+          <span>Address : Attapur,hyderabad,telangana ,pin-500048</span>
+        </div>
+        <br><br>
+       <div style="text-align: left;">
+      <p>Copyright CC All Images are taken from www.varadhifarms.com</p>
+        </footer>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
