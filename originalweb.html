@@ -7,12 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   </head>
   <style>
-   
-
-    
-
-   
-
+  
   @media(max-width:991px){
     .sidebar{
       background-color: rgba(255, 255, 255, 0.15);
@@ -52,7 +47,130 @@ footer{
 background-color: orange;
 }
 
-  
+/* Target container and card styles */
+.new-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+} 
+
+.card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    width: 250px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Only apply to images within .card */
+.card img {
+    height: 200px;
+    width: 150px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.card-content h3 {
+    margin-bottom: 5px;
+}
+
+.card-content p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+.card:nth-child(1) .card-content {
+    background-color: #ffcc66;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.card:nth-child(2) .card-content {
+    background-color: #66ccff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.card:nth-child(3) .card-content {
+    background-color: #99cc66;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.container-new1 {
+    font-family: Arial, sans-serif;
+    background-color: #f5a623;
+    color: #4d4d4d;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+
+.newsletter {
+    width: 45%;
+}
+
+.newsletter h2 {
+    font-size: 36px;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.newsletter input[type="email"] {
+    padding: 15px;
+    width: 80%;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.newsletter button {
+    padding: 14px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 4px;
+}
+
+.newsletter .error-message {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.info {
+    width: 50%;
+    color: black;
+}
+
+.info h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.info p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.footer {
+    margin-top: 40px;
+    font-size: 14px;
+    color: #666;
+    text-align: left;
+}
 
 
 
@@ -162,13 +280,13 @@ document.addEventListener('DOMContentLoaded', function() {
               <a class="nav-link active" aria-current="page" href="#home">Home</a>
             </li>
             <li class="nav-item mx-2">
-              <a class="nav-link" href="#products">products</a>
+              <a class="nav-link" href="#products">Products</a>
             </li>
             <li class="nav-item mx-2">
-              <a class="nav-link" href="#about">about</a>
+              <a class="nav-link" href="#about">About</a>
             </li>
             <li class="nav-item mx-2">
-              <a class="nav-link" href="#contact">contact</a>
+              <a class="nav-link" href="#contact">Contact</a>
             </li>
           </ul>
           <form class="d-flex mt-3" role="search">
@@ -240,7 +358,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 <h4>cashew 1kg</h4>
                 <h6>from Rs.300.00</h6>
                 <button onclick="addToCart('cashew 1kg', 300.00)">Add to cart</button>
-
               </div>
             </div>
             <div id="total"></div>
@@ -270,6 +387,78 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="cow">
           <img src="https://d2td6mzj4f4e1e.cloudfront.net/wp-content/uploads/sites/8/2013/06/10/the-co-operative-launches-farming-groups-in-support-of-british-agriculture/cows-grazing-w.jpg"> 
         </div>
+        <br><br>
+
+        <div class="new-container">
+          <div class="card">
+              <img src="dry fruits.jpg" alt="Fresh dry fruits" style="width: 200px;height: 160px;">
+              <div class="card-content">
+                  <h3>Fresh Dry Fruits</h3>
+                  <p>20% OFF</p>
+              </div>
+          </div>
+          <div class="card">
+              <img src="strawberry.jpg" alt="Tasty Fruits" style="height:160px ;width: 200px;">
+              <div class="card-content">
+                  <h3>Tasty Fruits</h3>
+                  <p>Free delivery</p>
+              </div>
+          </div>
+          <div class="card">
+              <img src="brocoli.jpg" alt="Exotic Vegetable" style="height: 160px; width: 200px;">
+              <div class="card-content">
+                  <h3>Exotic Vegetable</h3>
+                  <p>Discount 30% OFF </p>
+              </div>
+          </div>
+      </div> 
+      <br><br>
+      <h1 style="color: darkslateblue;">Fresh organic Fruits and Vegetables</h1>
+      <br>
+      <div class="container text-center">
+      <div class="row">
+        <div class="col-4">
+          <img src="https://th.bing.com/th/id/OIP.3oUCksZmXiUt0wPDLxwQugHaE7?w=267&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"class="rounded mx-auto d-block"  alt="">
+          <h4 >Apples 1kg</h4>
+          <h6>from Rs.144.00</h6>
+          <button onclick="addToCart(' Apples 1kg', 144.00)">Add to cart</button>
+        </div>
+        <div class="col-4">
+          <img src="banana.jpg" class="rounded mx-auto d-block" alt="">
+          <h4 >Banana </h4>
+          <h6>from Rs.50.00</h6>
+          <button onclick="addToCart('Banana', 50.00)">Add to cart</button>
+        </div>
+        <div class="col-4">
+          <img src="dragan .jpg" class="rounded mx-auto d-block" alt="" >
+          <h4 >Dragan fruit 200gm</h4>
+          <h6>from Rs.200.00</h6>
+          <button onclick="addToCart('Dragan fruit 200gm', 200.00)">Add to cart</button>
+        </div>
+      </div>
+      </div><br>
+      <div class="container text-center">
+      <div class="row">
+              <div class="col-4">
+                <img src="corinder.jpg"class="rounded mx-auto d-block"  alt="">
+                <h4>Coriander</h4>
+                <h6>from Rs.30.00</h6> 
+                <button onclick="addToCart('coriander', 30.00)">Add to cart</button>
+              </div>
+              <div class="col-4">
+                <img src="capcusm.jpg" class="rounded mx-auto d-block" alt="">
+                <h4>Capsicum 500g</h4>
+                <h6>from Rs.50.00</h6>
+                <button onclick="addToCart('Capsicum 500g', 50.00)">Add to cart</button>
+              </div>
+              <div class="col-4">
+                <img src="carrot.jpg" class="rounded mx-auto d-block" alt="" >
+                <h4>Carrot 500g</h4>
+                <h6>from Rs.30.00</h6>
+                <button onclick="addToCart('carrot 500g', 30.00)">Add to cart</button>
+              </div>
+            </div>
+            </div>
         <br>
         <br>
         <div class="card" id="about" style="width:40rem;margin: 0 auto; background-color:yellow;">
@@ -285,26 +474,43 @@ document.addEventListener('DOMContentLoaded', function() {
           <h1><b>100% Pure</b></h1>
           <h4>Our products Are Free From Chemicals And Additives</h4>
         </div>
-        <footer id="contact" style="background-color: yellow;">
-        <div style="text-align:left;">
-          <h4 style="text-align: left;">customer care</h4>
-          <span>FAQ</span><br>
-          <span>shipping policy</span><br>
-          <span>refund policy</span><br>
-          <span>terms of service</span><br><br>
-        
-        <div style="text-align:left;">
-          <h4 style="text-align: left;">contact Info</h4>
-          <span>customer care number:
-            +918309756963<br>
-          </span>
-          <span>Customer support timimgs : 10:00am to 6:00pm</span><br>
-          <span>Address : Attapur,hyderabad,telangana ,pin-500048</span>
-        </div>
-        <br><br>
-       <div style="text-align: left;">
-      <p>Copyright CC All Images are taken from www.varadhifarms.com</p>
-        </footer>
+        <div class="container-new1">
+          <!-- Newsletter Signup Section -->
+          <div class="newsletter">
+              <h2>Sign up to our newsletter</h2>
+              <form>
+                  <input type="email" placeholder="E-mail" required>
+                  <button type="submit">→</button>
+                  <div class="error-message">Please fill out this field.</div>
+              </form>
+          </div>
+  
+          <!-- Customer Care Info Section -->
+          <div class="info">
+              <h3>Customer Care</h3>
+              <p>FAQ</p>
+              <p>Shipping Policy</p>
+              <p>Refund Policy</p>
+              <p>Cancellation Policy</p>
+              <p>Privacy Policy</p>
+              <p>Terms of Service</p>
+              <p>Contact Information</p>
+              
+              <h3 class="Contact">Contact Info</h3>
+              <p>Trade Name: Prakruthi Farms </p>
+              <p>Email Support: v6563991@gmail.com</p>
+              <p>Customer Care Number: +91 8309756963</p>
+              <p>Customer Support Timings: 10:00am to 6:00pm</p>
+              <p>Address: Attapur, Hyderabad, Telangana, Pin - 500048</p>
+          </div>
+          </div>
+          <footer>
+            <div style="text-align: left;padding: 20px;background-color: orange;">
+              Copyright CC Images are taken from varadhifarms
+          </div>
+            </footer>
+      
+      
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
